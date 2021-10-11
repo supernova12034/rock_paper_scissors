@@ -1,0 +1,22 @@
+.b1{
+    color: rgb(240, 140, 27);
+}
+
+.b2{
+    color: rgb(255, 255, 255);
+}
+
+.b3{
+    color: rgb(0, 0, 0);
+}
+
+.container1{
+padding-left: 40%;
+display: grid;
+grid-template-columns: 45%;
+grid-template-rows:50px,50px,50px,50px,50px;
+}
+
+.output{
+width: 200px;    
+}

@@ -1,3 +1,11 @@
+let button1 = document.querySelector(".b1");
+let button2 = document.querySelector(".b2");
+let button3 = document.querySelector(".b3");
+
+let result = document.querySelector(".output");
+
+let playerInput;
+
 function computerPlay() {
     let randomNum1 = Math.random() * (7 - 0) + 0;
   
@@ -13,8 +21,7 @@ function computerPlay() {
   }
   
   function playerSelection() {
-    let playerInput = prompt("Please enter rock, paper, scissors: ");
-  
+
     if (playerInput == "rock") {
       return "rock";
     }
@@ -41,17 +48,17 @@ function computerPlay() {
   
     if (player == "rock" && computer == "scissors") {
       playerScore++;
-      return console.log(playerWon);
+      return document.querySelector(".output").textContent = playerWon;
     }
   
     else if (player == "scissors" && computer == "paper") {
       playerScore++;
-      return console.log(playerWon);
+      return document.querySelector(".output").textContent = playerWon;
     }
   
     else if (player == "paper" && computer == "rock") {
       playerScore++;
-      return console.log(playerWon);
+      return document.querySelector(".output").textContent = playerWon;
     }
     // Player winning section
   
@@ -59,16 +66,16 @@ function computerPlay() {
   
     if (player == "rock" && computer == "rock") {
   
-      return console.log(tie);
+        return document.querySelector(".output").textContent = tie;
     }
     else if (player == "scissors" && computer == "scissors") {
   
-      return console.log(tie);
+        return document.querySelector(".output").textContent = tie;
     }
   
     else if (player == "paper" && computer == "paper") {
   
-      return console.log(tie);
+        return document.querySelector(".output").textContent = tie;
     }
     // Tie section.
   
@@ -76,18 +83,15 @@ function computerPlay() {
   
     if (computer == "rock" && player == "scissors") {
       computerScore++;
-      console.log(computer);
-      return console.log(computerWon);
+      return document.querySelector(".output").textContent = computerWon;
     }
     else if (computer == "scissors" && player == "paper") {
       computerScore++;
-      console.log(computer);
-      return console.log(computerWon);
+      return document.querySelector(".output").textContent = computerWon;
     }
     else if (computer == "paper" && player == "rock") {
       computerScore++;
-      console.log(computer);
-      return console.log(computerWon);
+      return document.querySelector(".output").textContent = computerWon;
     }
     //Computer winning section 
   }
@@ -103,20 +107,46 @@ function computerPlay() {
   
   
   if (playerScore> computerScore){
-  return `Player is the final winner, with the score of ${playerScore}`;
+    return document.querySelector(".output2").textContent =
+   `Player is the final winner, with the score of ${playerScore}`;
   }
   else if (computerScore >playerScore){
-  return `Computer is the final winner, with the score of ${computerScore}`;
+    return document.querySelector(".output2").textContent =
+   `Computer is the final winner, with the score of ${computerScore}`;
   }
   
   else if (playerScore == computerScore){
-  return `The final score is a tie`;
+    return document.querySelector(".output2").textContent = `The final score is a tie`;
   }
   
   }
   
-  
-  game();
+  button1.addEventListener('click',function(e){
+    playerInput = "rock";
+    game();
+    resetScore();
+  });
+
+  button2.addEventListener('click',function(e){
+    playerInput = "paper";
+    game();
+    resetScore();
+  });
+
+  button3.addEventListener('click',function(e){
+    playerInput = "scissors";
+    game();
+    resetScore();
+  });
+
+
+
+  function resetScore(){
+      playerScore = 0;
+      computerScore = 0;
+  }
+
+//   game();
   
   /*
   1)
